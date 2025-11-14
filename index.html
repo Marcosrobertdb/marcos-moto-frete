@@ -6,7 +6,7 @@
 <title>Marcos Moto Frete</title>
 
 <style>
-    :root {
+    :root {
         --yellow: #ffcc00;
         --bg: #0d0d0d;
         --card: #161616;
@@ -23,40 +23,40 @@
         padding: 16px 0;
         border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    /* Estilos de layout DESKTOP para Header e Footer */
-    .header-content, .footer-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+    /* Estilos de layout DESKTOP para Header e Footer */
+    .header-content, .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     .container {
         width: 92%;
         max-width: 1100px;
         margin: auto;
     }
-    nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    nav img, header img { /* Adicionado header img para o logo */
+    
+    /* REMOVIDA A REGRA OBSOLETA 'nav' NO CSS */
+
+    /* Estilos para o logo no header e footer */
+    header img, .footer-info img { 
         width: 70px;
         height: 70px;
         border-radius: 12px;
         border: 2px solid var(--yellow);
         object-fit: cover;
     }
-    nav a, .header-content div a { /* Ajustado para links do cabeçalho */
+    /* Estilos para os links do cabeçalho */
+    .header-content div a { 
         color: var(--yellow);
         text-decoration: none;
         font-size: 15px;
         margin-left: 20px;
     }
-    /* Correção global para imagens não estourarem o layout */
-    img {
-        max-width: 100%;
-        height: auto;
-    }
+    /* Correção global para imagens não estourarem o layout */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 
     h2, h3 {
         color: var(--yellow);
@@ -112,59 +112,59 @@
         border-top: 1px solid rgba(255,255,255,.1);
         background: #0e0e0e;
     }
-    /* Estilos do Footer */
-    .footer-info { /* Estilo para o bloco de logo e texto do footer */
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-    .footer-info img {
-        width: 80px;
-        height: 80px;
-        border-radius: 10px;
-        border: 2px solid var(--yellow);
-        object-fit: cover;
-    }
+    /* Estilos do Footer */
+    .footer-info { /* Estilo para o bloco de logo e texto do footer */
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .footer-info img {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        border: 2px solid var(--yellow);
+        object-fit: cover;
+    }
 
 
-    /* --- INÍCIO: REGRAS DE RESPONSIVIDADE (MOBILE) --- */
-    @media (max-width: 768px) {
-        /* 1. Ajuste do Cabeçalho (Header) */
-        .header-content {
-            flex-direction: column; /* Alinha o logo e os links verticalmente */
-            align-items: flex-start; /* Alinha o conteúdo à esquerda */
-            gap: 15px; /* Adiciona espaço entre o logo e os links */
-        }
-        
-        /* Força os links de navegação a quebrar a linha se necessário */
-        .header-content > div:last-child {
-            display: flex;
-            flex-wrap: wrap; 
-            gap: 15px; /* Espaço entre os links */
-            margin-left: -20px; /* Compensa o margin-left dos links */
-        }
-        .header-content > div:last-child a {
-            margin-left: 20px; /* Mantém o margin-left padrão */
-        }
+    /* --- INÍCIO: REGRAS DE RESPONSIVIDADE (MOBILE) --- */
+    @media (max-width: 768px) {
+        /* 1. Ajuste do Cabeçalho (Header) */
+        .header-content {
+            flex-direction: column; /* Alinha o logo e os links verticalmente */
+            align-items: flex-start; /* Alinha o conteúdo à esquerda */
+            gap: 15px; /* Adiciona espaço entre o logo e os links */
+        }
+        
+        /* Força os links de navegação a quebrar a linha se necessário */
+        .header-content > div:last-child {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 15px; /* Espaço entre os links */
+            margin-left: -20px; /* Compensa o margin-left dos links */
+        }
+        .header-content > div:last-child a {
+            margin-left: 20px; /* Mantém o margin-left padrão */
+        }
 
-        /* 2. Ajuste do Rodapé (Footer) */
-        .footer-content {
-            flex-direction: column; /* Alinha os blocos (Logo + Info e Contato) verticalmente */
-            align-items: flex-start;
-            gap: 20px;
-        }
-        
-        /* Centraliza o texto de contato no rodapé */
-        .footer-content > div:last-child {
-            text-align: left;
-        }
+        /* 2. Ajuste do Rodapé (Footer) */
+        .footer-content {
+            flex-direction: column; /* Alinha os blocos (Logo + Info e Contato) verticalmente */
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        /* Centraliza o texto de contato no rodapé */
+        .footer-content > div:last-child {
+            text-align: left;
+        }
 
-        /* 3. Ajuste dos Depoimentos (Grid) */
-        #servicos .container > div {
-            grid-template-columns: 1fr; /* Força 1 coluna em vez de 3 */
-        }
-    }
-    /* --- FIM: REGRAS DE RESPONSIVIDADE (MOBILE) --- */
+        /* 3. Ajuste dos Depoimentos (Grid) */
+        #servicos .container > div {
+            grid-template-columns: 1fr; /* Força 1 coluna em vez de 3 */
+        }
+    }
+    /* --- FIM: REGRAS DE RESPONSIVIDADE (MOBILE) --- */
 </style>
 </head>
 
@@ -212,14 +212,15 @@
 <div class="container">
 <h3>Área de atendimento (mapa)</h3>
 <div style="background:#0b0b0b;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,.03)">
-<iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58527.0380428071!2d-46.82577327746927!3d-23.534664734550088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceff085b9ef207%3A0xf21e27d4c824c4e!2sOsasco%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1763142288770!5m2!1spt-BR!2sbr" 
-    width="100%" 
-    height="320" 
-    style="border:0; border-radius:8px;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
+<iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58527.0380428071!2d-46.82577327746927!3d-23.534664734550088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceff085b9ef207%3A0xf21e27d4c824c4e!2sOsasco%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1763142288770!5m2!1spt-BR!2sbr"
+    title="Mapa da Área de Atendimento" 
+    width="100%"
+    height="320"
+    style="border:0; border-radius:8px;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
 </iframe>
 </div>
 </div>
@@ -241,7 +242,7 @@
 
 <div class="wa-fixed">
 <a href="https://wa.me/5511965283733" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="32">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="32" alt="Ícone do WhatsApp">
 </a>
 </div>
 
