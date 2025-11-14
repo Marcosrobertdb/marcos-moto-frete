@@ -188,4 +188,105 @@
 
 <form id="pedidoForm">
     <input id="nome" type="text" placeholder="Seu nome" required>
-    <input id="telefone
+    <input id="telefone" type="text" placeholder="Telefone" required>
+    <input id="coleta" type="text" placeholder="Endereço de coleta" required>
+    <input id="entrega" type="text" placeholder="Endereço de entrega" required>
+
+    <select id="tipo">
+        <option value="Entrega Normal">Entrega Normal</option>
+        <option value="Entrega Rápida">Entrega Rápida</option>
+        <option value="Documentos">Documentos</option>
+    </select>
+
+    <textarea id="obs" rows="3" placeholder="Observações"></textarea>
+
+    <button type="submit">Enviar para o WhatsApp</button>
+</form>
+</div>
+</section>
+
+
+<section id="mapa" style="padding:18px 0;border-top:1px solid rgba(255,255,255,.02)">
+<div class="container">
+<h3>Área de atendimento (mapa)</h3>
+<div style="background:#0b0b0b;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,.03)">
+<iframe
+    /* REMOVIDO O ATRIBUTO SRC PARA ELIMINAR O ERRO */
+    title="Mapa da Área de Atendimento" 
+    width="100%"
+    height="320"
+    style="border:0; border-radius:8px;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</div>
+</div>
+</section>
+
+<section style="padding:28px 0" id="servicos">
+<div class="container">
+<h3>O que dizem os clientes</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<div class="form-card">"Chegou rápido e o motoboy foi muito profissional."<br><strong style="color:var(--yellow)">— Ana</strong></div>
+<div class="form-card">"Sempre uso nas emergências. Recomendo!"<br><strong style="color:var(--yellow)">— Rafael</strong></div>
+<div class="form-card">"Preço justo e excelente atendimento."<br><strong style="color:var(--yellow)">— João</strong></div>
+</div>
+</div>
+</section>
+
+</main>
+
+
+<div class="wa-fixed">
+<a href="https://wa.me/5511965283733" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="32" alt="Ícone do WhatsApp">
+</a>
+</div>
+
+
+<footer id="contato">
+<div class="container footer-content">
+    <div class="footer-info">
+        <img src="site.png" alt="Logo Marcos Moto Frete">
+        <div>
+            <div style="font-weight:700;color:var(--yellow)">Marcos Moto Frete</div>
+            <div>Osasco - SP • Atendimento: Seg-Sex 08:00-20:00</div>
+        </div>
+    </div>
+
+    <div style="text-align:right">
+        <strong>Contato</strong><br>
+        WhatsApp: <a href="https://wa.me/5511965283733" style="color:var(--yellow)" target="_blank">(11) 96528-3733</a>
+        <br><span style="color:#777;font-size:12px">WhatsApp: 5511965283733</span>
+    </div>
+</div>
+</footer>
+
+
+<script>
+// Envia formulário para WhatsApp
+document.getElementById('pedidoForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const tel = document.getElementById('telefone').value.trim();
+    const coleta = document.getElementById('coleta').value.trim();
+    const entrega = document.getElementById('entrega').value.trim();
+    const tipo = document.getElementById('tipo').value.trim();
+    const obs = document.getElementById('obs').value.trim();
+
+    const msg =
+        `*Pedido de entrega*%0A` +
+        `*Nome:* ${nome}%0A` +
+        `*Telefone:* ${tel}%0A` +
+        `*Coleta:* ${coleta}%0A` +
+        `*Entrega:* ${entrega}%0A` +
+        `*Tipo:* ${tipo}%0A` +
+        `*Obs:* ${obs}`;
+
+    window.open(`https://wa.me/5511965283733?text=${msg}`, '_blank');
+});
+</script>
+
+</body>
+</html>
