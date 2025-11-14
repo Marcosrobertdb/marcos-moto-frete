@@ -27,7 +27,7 @@
     .header-content, .footer-content {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end; /* Links alinhados à direita */
     }
     .container {
         width: 92%;
@@ -35,10 +35,11 @@
         margin: auto;
     }
     
-    /* Estilos para o logo no header e footer */
-    header img, .footer-info img { 
-        width: 70px;
-        height: 70px;
+    /* OBS: O logo do header foi removido e substituído pelo Banner */
+    /* Estilos para o logo no footer */
+    .footer-info img { 
+        width: 80px;
+        height: 80px;
         border-radius: 12px;
         border: 2px solid var(--yellow);
         object-fit: cover;
@@ -102,6 +103,7 @@
         justify-content: center;
         border-radius: 50%;
         cursor: pointer;
+        z-index: 1000; /* Garante que fique acima de outros elementos */
     }
 
     footer {
@@ -116,22 +118,13 @@
         align-items: center;
         gap: 12px;
     }
-    .footer-info img {
-        width: 80px;
-        height: 80px;
-        border-radius: 10px;
-        border: 2px solid var(--yellow);
-        object-fit: cover;
-    }
 
 
     /* --- INÍCIO: REGRAS DE RESPONSIVIDADE (MOBILE) --- */
     @media (max-width: 768px) {
         /* 1. Ajuste do Cabeçalho (Header) */
         .header-content {
-            flex-direction: column; /* Alinha o logo e os links verticalmente */
-            align-items: flex-start; /* Alinha o conteúdo à esquerda */
-            gap: 15px; /* Adiciona espaço entre o logo e os links */
+            justify-content: center; /* Centraliza os links quando o logo é removido */
         }
         
         /* Força os links de navegação a quebrar a linha se necessário */
@@ -139,24 +132,21 @@
             display: flex;
             flex-wrap: wrap; 
             gap: 15px; /* Espaço entre os links */
-            margin-left: -20px; /* Compensa o margin-left dos links */
+            /* Ajustes para centralizar no mobile */
+            width: 100%;
+            justify-content: space-around;
         }
         .header-content > div:last-child a {
-            margin-left: 20px; /* Mantém o margin-left padrão */
+            margin-left: 0; 
         }
 
         /* 2. Ajuste do Rodapé (Footer) */
         .footer-content {
-            flex-direction: column; /* Alinha os blocos (Logo + Info e Contato) verticalmente */
+            flex-direction: column; /* Alinha os blocos verticalmente */
             align-items: flex-start;
             gap: 20px;
         }
         
-        /* Centraliza o texto de contato no rodapé */
-        .footer-content > div:last-child {
-            text-align: left;
-        }
-
         /* 3. Ajuste dos Depoimentos (Grid) */
         #servicos .container > div {
             grid-template-columns: 1fr; /* Força 1 coluna em vez de 3 */
@@ -170,8 +160,6 @@
 
 <header>
 <div class="container header-content">
-    <img src="site.png" alt="Logo Marcos Moto Frete">
-
     <div>
         <a href="#servicos">Serviços</a>
         <a href="#pedido">Fazer Pedido</a>
@@ -179,6 +167,16 @@
     </div>
 </div>
 </header>
+
+<section id="hero" style="padding: 20px 0;">
+    <div class="container">
+        <img 
+            src="capa-marcos-moto.jpg" 
+            alt="Marcos Moto Frete - Serviços de Entrega Rápida - Telefone 11 96528-3733" 
+            style="width: 100%; border-radius: 12px; border: 2px solid var(--yellow); object-fit: cover; display: block;"
+        >
+    </div>
+</section>
 
 <main>
 
@@ -211,7 +209,7 @@
 <h3>Área de atendimento (mapa)</h3>
 <div style="background:#0b0b0b;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,.03)">
 <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117075.7601957245!2d-46.8257733!3d-23.5346647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceff085b9ef207%3A0xf21e27d4c824c4e!2sOsasco%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1700078400000!5m2!1spt-BR!2sbr"
+    src="https://maps.google.com/maps?q=Osasco,+SP&output=embed"
     title="Mapa da Área de Atendimento Osasco" 
     width="100%"
     height="320"
@@ -248,8 +246,7 @@
 <footer id="contato">
 <div class="container footer-content">
     <div class="footer-info">
-        <img src="site.png" alt="Logo Marcos Moto Frete">
-        <div>
+        <img src="site.png" alt="Logo Marcos Moto Frete"> <div>
             <div style="font-weight:700;color:var(--yellow)">Marcos Moto Frete</div>
             <div>Osasco - SP • Atendimento: Seg-Sex 08:00-20:00</div>
         </div>
