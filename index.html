@@ -1,122 +1,78 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marcos Moto Frete | Entregas Rápidas em Osasco</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { background-color: #111; color: #fff; }
-    .btn-yellow { background-color: #facc15; color: #111; }
-    .btn-yellow:hover { background-color: #eab308; }
-  </style>
-</head>
-<body class="font-sans">
 
-  <header class="bg-black py-4 shadow-md sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-4">
-      <div class="flex items-center gap-3">
-        <img src="site.png" alt="Logo Marcos Moto Frete" class="w-14 h-14 rounded-full border-2 border-yellow-400" />
-        <h1 class="text-2xl font-bold text-yellow-400">Marcos Moto Frete</h1>
-      </div>
-      <a href="#contato" class="btn-yellow px-4 py-2 rounded-lg font-semibold transition">
-        Solicitar Entrega
-      </a>
-    </div>
-  </header>
 
-  <section 
-    class="relative h-[60vh] flex items-center justify-center text-center"
-    style="
-        background-image: url('capa-marcos-moto.jpg'); 
-        background-size: cover; 
-        background-position: center;
-        background-repeat: no-repeat;
-    "
-  >
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    
-    <div class="z-10 relative p-4">
-        <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 text-white drop-shadow-lg">
-            Sua Entrega Rápida e Segura.
-        </h2>
-        <p class="text-xl sm:text-2xl mb-8 text-yellow-400 font-semibold drop-shadow-lg">
-            Atendimento em Osasco e Região.
-        </p>
-        <a href="#contato" class="btn-yellow px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition duration-300">
-            Chamar no WhatsApp
-        </a>
-    </div>
-  </section>
-  <section class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-3 gap-10 text-center">
-    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg border border-yellow-400">
-      <h3 class="text-xl font-bold mb-2 text-yellow-400">⚡ Agilidade</h3>
-      <p>Entregas expressas com rapidez e eficiência em toda a região.</p>
-    </div>
-    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg border border-yellow-400">
-      <h3 class="text-xl font-bold mb-2 text-yellow-400">🛡️ Segurança</h3>
-      <p>Seus produtos transportados com cuidado, responsabilidade e rastreio.</p>
-    </div>
-    <div class="bg-gray-800 p-8 rounded-2xl shadow-lg border border-yellow-400">
-      <h3 class="text-xl font-bold mb-2 text-yellow-400">💰 Preço Justo</h3>
-      <p>Valores acessíveis e condições especiais para empresas e entregas fixas.</p>
-    </div>
-  </section>
+<!-- MAPA (placeholder) -->
+<section style="padding:18px 0;border-top:1px solid rgba(255,255,255,.02)">
+<div class="container">
+<h3 style="color:var(--yellow);margin-bottom:12px">Área de atendimento (mapa)</h3>
+<div style="background:#0b0b0b;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,.03)">
+<!-- Caso queira integrar o Google Maps, trocaremos por iframe com sua chave -->
+<div style="width:100%;height:320px;border-radius:8px;background:linear-gradient(90deg,#111,#0f0f10);display:flex;align-items:center;justify-content:center;color:#777">Mapa - substitua por iframe do Google Maps quando quiser</div>
+</div>
+</div>
+</section>
 
-  <section class="bg-black py-16 border-t border-yellow-400 border-b">
-    <h2 class="text-center text-3xl font-bold mb-10 text-yellow-400">Planos e Valores</h2>
-    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
-      <div class="bg-gray-800 p-8 rounded-2xl shadow text-center">
-        <h3 class="text-xl font-bold mb-4 text-yellow-400">Entrega Local</h3>
-        <p class="text-3xl font-bold mb-4">R$ 20</p>
-        <p>Entregas dentro de Osasco.</p>
-      </div>
-      <div class="bg-gray-800 p-8 rounded-2xl shadow text-center border-2 border-yellow-400">
-        <h3 class="text-xl font-bold mb-4 text-yellow-400">Entrega Express</h3>
-        <p class="text-3xl font-bold mb-4">R$ 35</p>
-        <p>Coleta imediata e entrega em até 1h.</p>
-      </div>
-      <div class="bg-gray-800 p-8 rounded-2xl shadow text-center">
-        <h3 class="text-xl font-bold mb-4 text-yellow-400">Mensal para Empresas</h3>
-        <p class="text-3xl font-bold mb-4">Sob consulta</p>
-        <p>Serviço fixo de motofrete com prioridade no atendimento.</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-center text-3xl font-bold mb-10 text-yellow-400">O que dizem os clientes</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-gray-800 p-6 rounded-2xl shadow border border-yellow-400">
-        <p>“Chegou super rápido, muito educado e profissional. Indico com certeza!”</p>
-        <p class="mt-4 font-semibold text-yellow-400">— Ana Paula</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-2xl shadow border border-yellow-400">
-        <p>“Sempre pontual e cuidadoso com as entregas. Cliente fiel há meses.”</p>
-        <p class="mt-4 font-semibold text-yellow-400">— Rafael Lima</p>
-      </div>
-      <div class="bg-gray-800 p-6 rounded-2xl shadow border border-yellow-400">
-        <p>“Excelente atendimento e ótimo preço. Recomendo o Marcos Moto Frete!”</p>
-        <p class="mt-4 font-semibold text-yellow-400">— João Santos</p>
-      </div>
-    </div>
-  </section>
+<!-- DEPOIMENTOS -->
+<section style="padding:28px 0">
+<div class="container">
+<h3 style="color:var(--yellow);text-align:center;margin-bottom:12px">O que dizem os clientes</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<div class="form-card">"Chegou rápido e o motoboy foi muito profissional." <br><strong style="color:var(--yellow);">— Ana</strong></div>
+<div class="form-card">"Sempre uso nas emergências. Recomendo!"<br><strong style="color:var(--yellow);">— Rafael</strong></div>
+<div class="form-card">"Preço justo e excelente atendimento."<br><strong style="color:var(--yellow);">— João</strong></div>
+</div>
+</div>
+</section>
 
-  <section id="contato" class="bg-yellow-400 text-black py-16 text-center">
-    <h2 class="text-3xl font-bold mb-4">Solicite sua entrega agora mesmo</h2>
-    <p class="mb-6 text-lg">Envie uma mensagem e receba o orçamento na hora!</p>
-    <a href="https://wa.me/5511965283733" target="_blank"
-        class="bg-black text-yellow-400 px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
-        📲 Chamar no WhatsApp
-    </a>
-  </section>
 
-  <footer class="bg-black text-gray-500 text-center py-10 text-sm border-t border-gray-800">
-    <div class="flex justify-center mb-4">
-      <img src="site.png" alt="Logo Marcos Moto Frete" class="w-16 h-16 rounded-full border-2 border-yellow-400" />
-    </div>
-    <p>© 2025 Marcos Moto Frete — Entregas em Osasco e Região.</p>
-  </footer>
+</main>
 
+
+<!-- Floating WhatsApp + inline button -->
+<div class="wa-fixed" title="Chamar no WhatsApp">
+<a href="https://wa.me/5511965283733" target="_blank" aria-label="WhatsApp">
+<!-- SVG WhatsApp icon -->
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.52 3.48A11.95 11.95 0 0012 0C5.373 0 .1 5.373.1 12c0 2.115.553 4.18 1.6 6.02L0 24l6.1-1.6A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.19-1.245-6.16-3.48-8.52z" fill="#111"/>
+<path d="M17.2 14.2c-.35-.17-2.07-1.02-2.4-1.14-.34-.12-.59-.17-.84.17-.25.33-.98 1.14-1.2 1.37-.22.22-.44.25-.81.08-.37-.17-1.55-.57-2.95-1.84-1.09-.97-1.82-2.16-2.03-2.54-.21-.38-.02-.58.16-.76.16-.16.37-.41.55-.61.18-.2.24-.33.36-.55.12-.22.06-.42-.03-.59-.09-.17-.84-2.02-1.16-2.77-.31-.72-.63-.62-.86-.63-.23-.01-.5-.01-.77-.01-.28 0-.58.08-.88.41-.3.33-1.14 1.11-1.14 2.73 0 1.62 1.17 3.18 1.33 3.4.16.22 2.3 3.52 5.57 4.94 3.04 1.34 3.04.89 3.59.83.55-.06 1.79-.73 2.04-1.45.25-.72.25-1.34.17-1.45-.08-.11-.29-.17-.64-.33z" fill="#111"/>
+</svg>
+</a>
+</div>
+
+
+<!-- Footer com logo no rodapé (opção: topo + rodapé + fundo suave) -->
+<footer>
+<div class="container" style="display:flex;gap:20px;align-items:center;justify-content:space-between;position:relative">
+<div style="display:flex;align-items:center;gap:12px">
+<img src="site.png" alt="Marcos Moto Frete" style="width:76px;height:76px;border-radius:10px;border:2px solid var(--yellow);object-fit:cover" />
+<div>
+<div style="font-weight:700;color:var(--yellow)">Marcos Moto Frete</div>
+<div style="font-size:13px;color:#bdbdbd">Osasco - SP • Atendimento: Seg-Sex 08:00-20:00</div>
+</div>
+</div>
+<div style="text-align:right;color:#bdbdbd">
+<div style="font-weight:700">Contato</div>
+<div style="margin-top:6px">WhatsApp: <a href="https://wa.me/5511965283733" style="color:var(--yellow)" target="_blank">(11) 96528-3733</a></div>
+</div>
+</div>
+</footer>
+
+
+<script>
+// Form handler: abre WhatsApp com resumo do pedido
+document.getElementById('pedidoForm').addEventListener('submit', function(e){
+e.preventDefault();
+const nome = document.getElementById('nome').value || '';
+const tel = document.getElementById('telefone').value || '';
+const coleta = document.getElementById('coleta').value || '';
+const entrega = document.getElementById('entrega').value || '';
+const tipo = document.getElementById('tipo').value || '';
+const obs = document.getElementById('obs').value || '';
+const mensagem = `*Pedido de entrega*%0A*Nome:* ${nome}%0A*Tel:* ${tel}%0A*Coleta:* ${coleta}%0A*Entrega:* ${entrega}%0A*Tipo:* ${tipo}%0A*Obs:* ${obs}`;
+const url = `https://wa.me/5511965283733?text=${mensagem}`;
+window.open(url, '_blank');
+});
+</script>
 </body>
 </html>
