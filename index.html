@@ -6,6 +6,267 @@
 <title>Marcos Moto Frete</title>
 
 <style>
+    :root {
+        --yellow: #ffcc00;
+        --bg: #0d0d0d;
+        --card: #161616;
+        --text: #e8e8e8;
+    }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+    }
+    header {
+        background: #0f0f0f;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .container {
+        width: 92%;
+        max-width: 1100px;
+        margin: auto;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    nav img {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        border: 2px solid var(--yellow);
+        object-fit: cover;
+    }
+    nav a {
+        color: var(--yellow);
+        text-decoration: none;
+        font-size: 15px;
+        margin-left: 20px;
+    }
+
+    h2, h3 {
+        color: var(--yellow);
+    }
+
+    /* cartão */
+    .form-card {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 14px;
+        border: 1px solid rgba(255,255,255,.05);
+    }
+
+    /* Formulário */
+    form input, form select, form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        border: none;
+        background: #1b1b1b;
+        color: #fff;
+    }
+    form button {
+        width: 100%;
+        padding: 12px;
+        background: var(--yellow);
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* WhatsApp flutuante */
+    .wa-fixed {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        background: var(--yellow);
+        width: 62px;
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 30px 0;
+        border-top: 1px solid rgba(255,255,255,.1);
+        background: #0e0e0e;
+    }
+
+
+    /* --- INÍCIO: NOVAS REGRAS DE RESPONSIVIDADE (MOBILE) --- */
+    @media (max-width: 768px) {
+        /* 1. Ajuste do Cabeçalho (Header) */
+        header .container {
+            flex-direction: column; /* Alinha o logo e os links verticalmente */
+            align-items: flex-start !important; /* Alinha o conteúdo à esquerda */
+            gap: 15px; /* Adiciona espaço entre o logo e os links */
+        }
+
+        /* Ajusta a navegação */
+        nav {
+            flex-direction: column; /* Se houver nav, alinhar verticalmente */
+        }
+        nav a {
+            margin-left: 0;
+            margin-right: 15px; /* Adiciona um pequeno espaço entre os links horizontais */
+            font-size: 14px;
+        }
+
+        /* 2. Ajuste do Rodapé (Footer) */
+        footer .container {
+            flex-direction: column; /* Alinha os blocos (Logo + Info e Contato) verticalmente */
+            align-items: flex-start !important;
+            gap: 20px;
+        }
+        
+        /* Centraliza o texto de contato no rodapé */
+        footer .container > div:last-child {
+            text-align: left !important;
+        }
+
+        /* 3. Ajuste dos Depoimentos (Grid) */
+        /* Força o grid de depoimentos a ter apenas UMA coluna no celular */
+        #servicos .container > div {
+            grid-template-columns: 1fr; /* Força 1 coluna em vez de 3 */
+        }
+    }
+    /* --- FIM: NOVAS REGRAS DE RESPONSIVIDADE (MOBILE) --- */
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+    <img src="site.png" alt="Logo Marcos Moto Frete">
+
+    <div>
+        <a href="#servicos">Serviços</a>
+        <a href="#pedido">Fazer Pedido</a>
+        <a href="#contato">Contato</a>
+    </div>
+</div>
+</header>
+
+<main>
+
+<section id="pedido" style="padding:30px 0;">
+<div class="container">
+<h2>Faça seu pedido</h2>
+
+<form id="pedidoForm">
+    <input id="nome" type="text" placeholder="Seu nome" required>
+    <input id="telefone" type="text" placeholder="Telefone" required>
+    <input id="coleta" type="text" placeholder="Endereço de coleta" required>
+    <input id="entrega" type="text" placeholder="Endereço de entrega" required>
+
+    <select id="tipo">
+        <option value="Entrega Normal">Entrega Normal</option>
+        <option value="Entrega Rápida">Entrega Rápida</option>
+        <option value="Documentos">Documentos</option>
+    </select>
+
+    <textarea id="obs" rows="3" placeholder="Observações"></textarea>
+
+    <button type="submit">Enviar para o WhatsApp</button>
+</form>
+</div>
+</section>
+
+
+<section id="mapa" style="padding:18px 0;border-top:1px solid rgba(255,255,255,.02)">
+<div class="container">
+<h3>Área de atendimento (mapa)</h3>
+<div style="background:#0b0b0b;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,.03)">
+<div style="width:100%;height:320px;border-radius:8px;background:linear-gradient(90deg,#111,#0f0f10);display:flex;align-items:center;justify-content:center;color:#777">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58527.0380428071!2d-46.82577327746927!3d-23.534664734550088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceff085b9ef207%3A0xf21e27d4c824c4e!2sOsasco%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1763142288770!5m2!1spt-BR!2sbr" width="100%" height="320px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding:28px 0" id="servicos">
+<div class="container">
+<h3>O que dizem os clientes</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+<div class="form-card">"Chegou rápido e o motoboy foi muito profissional."<br><strong style="color:var(--yellow)">— Ana</strong></div>
+<div class="form-card">"Sempre uso nas emergências. Recomendo!"<br><strong style="color:var(--yellow)">— Rafael</strong></div>
+<div class="form-card">"Preço justo e excelente atendimento."<br><strong style="color:var(--yellow)">— João</strong></div>
+</div>
+</div>
+</section>
+
+</main>
+
+
+<div class="wa-fixed">
+<a href="https://wa.me/5511965283733" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="32">
+</a>
+</div>
+
+
+<footer id="contato">
+<div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+    <div style="display:flex;align-items:center;gap:12px">
+        <img src="site.png" width="80" height="80" style="border-radius:10px;border:2px solid var(--yellow);object-fit:cover">
+        <div>
+            <div style="font-weight:700;color:var(--yellow)">Marcos Moto Frete</div>
+            <div>Osasco - SP • Atendimento: Seg-Sex 08:00-20:00</div>
+        </div>
+    </div>
+
+    <div style="text-align:right">
+        <strong>Contato</strong><br>
+        WhatsApp: <a href="https://wa.me/5511965283733" style="color:var(--yellow)" target="_blank">(11) 96528-3733</a>
+    </div>
+</div>
+</footer>
+
+
+<script>
+// Envia formulário para WhatsApp
+document.getElementById('pedidoForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome = document.getElementById('nome').value.trim();
+    const tel = document.getElementById('telefone').value.trim();
+    const coleta = document.getElementById('coleta').value.trim();
+    const entrega = document.getElementById('entrega').value.trim();
+    const tipo = document.getElementById('tipo').value.trim();
+    const obs = document.getElementById('obs').value.trim();
+
+    const msg =
+        `*Pedido de entrega*%0A` +
+        `*Nome:* ${nome}%0A` +
+        `*Telefone:* ${tel}%0A` +
+        `*Coleta:* ${coleta}%0A` +
+        `*Entrega:* ${entrega}%0A` +
+        `*Tipo:* ${tipo}%0A` +
+        `*Obs:* ${obs}`;
+
+    window.open(`https://wa.me/5511965283733?text=${msg}`, '_blank');
+});
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marcos Moto Frete</title>
+
+<style>
     :root {
         --yellow: #ffcc00;
         --bg: #0d0d0d;
@@ -228,4 +489,5 @@ document.getElementById('pedidoForm').addEventListener('submit', function(e){
 
 </body>
 </html>
+
 
