@@ -131,15 +131,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let precoGlobal = 0;
 
     async function getCoords(endereco) {
-        const url = "https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(endereco);
+        const url = "https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=1&q="
+            + encodeURIComponent(endereco);
 
-        const resposta = await fetch(url, {
-            headers: { "User-Agent": "MarcosMotoFrete/1.0" }
-        });
-
+        const resposta = await fetch(url);
         const dados = await resposta.json();
-        if (dados.length === 0) return null;
-        return { lat: parseFloat(dados[0].lat), lon: parseFloat(dados[0].lon) };
+
+        if (!dados || dados.length === 0) return null;
+
+        return {
+            lat: parseFloat(dados[0].lat),
+            lon: parseFloat(dados[0].lon)
+        };
     }
 
     function distanciaKm(lat1, lon1, lat2, lon2) {
@@ -147,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const dLat = (lat2 - lat1) * Math.PI / 180;
         const dLon = (lon2 - lon1) * Math.PI / 180;
 
-        const a = 
+        const a =
             Math.sin(dLat/2)**2 +
             Math.cos(lat1 * Math.PI/180) *
             Math.cos(lat2 * Math.PI/180) *
@@ -157,8 +160,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     btnCalcular.addEventListener("click", async () => {
-        const origem = document.getElementById("origem").value;
-        const destino = document.getElementById("destino").value;
+
+        const origem = document.getElementById("origem").value.trim();
+        const destino = document.getElementById("destino").value.trim();
+
+        if (!origem || !destino) {
+            document.getElementById("resultado").innerText = "Preencha os dois endereços.";
+            return;
+        }
 
         const c1 = await getCoords(origem);
         const c2 = await getCoords(destino);
@@ -178,8 +187,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     btnWhats.addEventListener("click", () => {
-        const origem = document.getElementById("origem").value;
-        const destino = document.getElementById("destino").value;
+
+        const origem = document.getElementById("origem").value.trim();
+        const destino = document.getElementById("destino").value.trim();
 
         const msg =
             "*Pedido de Frete*" +
