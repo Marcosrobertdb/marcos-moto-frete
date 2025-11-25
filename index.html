@@ -23,20 +23,16 @@
         padding: 16px 0;
         border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    /* Estilos de layout DESKTOP para Header e Footer */
     .header-content, .footer-content {
         display: flex;
         align-items: center;
-        justify-content: flex-end; /* Links alinhados à direita */
+        justify-content: flex-end;
     }
     .container {
         width: 92%;
         max-width: 1100px;
         margin: auto;
     }
-    
-    /* OBS: O logo do header foi removido e substituído pelo Banner */
-    /* Estilos para o logo no footer */
     .footer-info img { 
         width: 80px;
         height: 80px;
@@ -44,24 +40,19 @@
         border: 2px solid var(--yellow);
         object-fit: cover;
     }
-    /* Estilos para os links do cabeçalho */
     .header-content div a { 
         color: var(--yellow);
         text-decoration: none;
         font-size: 15px;
         margin-left: 20px;
     }
-    /* Correção global para imagens não estourarem o layout */
     img {
         max-width: 100%;
         height: auto;
     }
-
     h2, h3 {
         color: var(--yellow);
     }
-
-    /* cartão */
     .form-card {
         background: var(--card);
         border-radius: 12px;
@@ -69,8 +60,7 @@
         border: 1px solid rgba(255,255,255,.05);
     }
 
-    /* Formulário */
-    form input, form select, form textarea {
+    input {
         width: 100%;
         padding: 10px;
         margin-bottom: 12px;
@@ -79,7 +69,7 @@
         background: #1b1b1b;
         color: #fff;
     }
-    form button {
+    button {
         width: 100%;
         padding: 12px;
         background: var(--yellow);
@@ -90,7 +80,6 @@
         cursor: pointer;
     }
 
-    /* WhatsApp flutuante */
     .wa-fixed {
         position: fixed;
         right: 18px;
@@ -103,7 +92,7 @@
         justify-content: center;
         border-radius: 50%;
         cursor: pointer;
-        z-index: 1000; /* Garante que fique acima de outros elementos */
+        z-index: 1000;
     }
 
     footer {
@@ -112,47 +101,11 @@
         border-top: 1px solid rgba(255,255,255,.1);
         background: #0e0e0e;
     }
-    /* Estilos do Footer */
-    .footer-info { /* Estilo para o bloco de logo e texto do footer */
+    .footer-info {
         display: flex;
         align-items: center;
         gap: 12px;
     }
-
-
-    /* --- INÍCIO: REGRAS DE RESPONSIVIDADE (MOBILE) --- */
-    @media (max-width: 768px) {
-        /* 1. Ajuste do Cabeçalho (Header) */
-        .header-content {
-            justify-content: center; /* Centraliza os links quando o logo é removido */
-        }
-        
-        /* Força os links de navegação a quebrar a linha se necessário */
-        .header-content > div:last-child {
-            display: flex;
-            flex-wrap: wrap; 
-            gap: 15px; /* Espaço entre os links */
-            /* Ajustes para centralizar no mobile */
-            width: 100%;
-            justify-content: space-around;
-        }
-        .header-content > div:last-child a {
-            margin-left: 0; 
-        }
-
-        /* 2. Ajuste do Rodapé (Footer) */
-        .footer-content {
-            flex-direction: column; /* Alinha os blocos verticalmente */
-            align-items: flex-start;
-            gap: 20px;
-        }
-        
-        /* 3. Ajuste dos Depoimentos (Grid) */
-        #servicos .container > div {
-            grid-template-columns: 1fr; /* Força 1 coluna em vez de 3 */
-        }
-    }
-    /* --- FIM: REGRAS DE RESPONSIVIDADE (MOBILE) --- */
 </style>
 </head>
 
@@ -170,11 +123,7 @@
 
 <section id="hero" style="padding: 20px 0;">
     <div class="container">
-        <img 
-            src="capa-marcos-moto.jpg" 
-            alt="Marcos Moto Frete - Serviços de Entrega Rápida - Telefone 11 96528-3733" 
-            style="width: 100%; border-radius: 12px; border: 2px solid var(--yellow); object-fit: cover; display: block;"
-        >
+        <img src="capa-marcos-moto.jpg" alt="Marcos Moto Frete">
     </div>
 </section>
 
@@ -182,27 +131,19 @@
 
 <section id="pedido" style="padding:30px 0;">
 <div class="container">
-<h2>Faça seu pedido</h2>
+<h2>Calcular Preço da Entrega</h2>
 
-<form id="pedidoForm">
-    <input id="nome" type="text" placeholder="Seu nome" required>
-    <input id="telefone" type="text" placeholder="Telefone" required>
-    <input id="coleta" type="text" placeholder="Endereço de coleta" required>
-    <input id="entrega" type="text" placeholder="Endereço de entrega" required>
+<input id="origem" type="text" placeholder="Endereço de coleta">
+<input id="destino" type="text" placeholder="Endereço de entrega">
 
-    <select id="tipo">
-        <option value="Entrega Normal">Entrega Normal</option>
-        <option value="Entrega Rápida">Entrega Rápida</option>
-        <option value="Documentos">Documentos</option>
-    </select>
+<button onclick="calcular()">Calcular Preço</button>
 
-    <textarea id="obs" rows="3" placeholder="Observações"></textarea>
+<h3 id="resultado"></h3>
 
-    <button type="submit">Enviar para o WhatsApp</button>
-</form>
+<button id="whatsBtn" style="display:none;" onclick="enviarWhats()">Enviar Pedido via WhatsApp</button>
+
 </div>
 </section>
-
 
 <section id="mapa" style="padding:18px 0;border-top:1px solid rgba(255,255,255,.02)">
 <div class="container">
@@ -210,13 +151,10 @@
 <div style="background:#0b0b0b;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,.03)">
 <iframe
     src="https://maps.google.com/maps?q=Osasco,+SP&output=embed"
-    title="Mapa da Área de Atendimento Osasco" 
     width="100%"
     height="320"
     style="border:0; border-radius:8px;"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
+    loading="lazy">
 </iframe>
 </div>
 </div>
@@ -226,8 +164,8 @@
 <div class="container">
 <h3>O que dizem os clientes</h3>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
-<div class="form-card">"Chegou rápido e o motoboy foi muito profissional."<br><strong style="color:var(--yellow)">— Carol</strong></div>
-<div class="form-card">"Sempre utilizo os serviços e, quando se trata de serviços urgentes, nunca tenho dor de cabeça. Recomendo!"<br><strong style="color:var(--yellow)">— Helder</strong></div>
+<div class="form-card">"Chegou rápido e o motoboy foi muito profissional."<br><strong style="color:var(--yellow)">— Ana</strong></div>
+<div class="form-card">"Sempre uso nas emergências. Recomendo!"<br><strong style="color:var(--yellow)">— Rafael</strong></div>
 <div class="form-card">"Preço justo e excelente atendimento."<br><strong style="color:var(--yellow)">— João</strong></div>
 </div>
 </div>
@@ -235,59 +173,89 @@
 
 </main>
 
-
 <div class="wa-fixed">
 <a href="https://wa.me/5511965283733" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="32" alt="Ícone do WhatsApp">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="32">
 </a>
 </div>
-
 
 <footer id="contato">
 <div class="container footer-content">
     <div class="footer-info">
-        <img src="site.png" alt="Logo Marcos Moto Frete"> <div>
+        <img src="site.png" alt="">
+        <div>
             <div style="font-weight:700;color:var(--yellow)">Marcos Moto Frete</div>
-            <div>Osasco - SP • Atendimento: Seg-Sex 08:00-20:00</div>
+            <div>Osasco - SP • Seg-Sex 08:00-20:00</div>
         </div>
     </div>
 
     <div style="text-align:right">
         <strong>Contato</strong><br>
         WhatsApp: <a href="https://wa.me/5511965283733" style="color:var(--yellow)" target="_blank">(11) 96528-3733</a>
-        <br><span style="color:#777;font-size:12px">WhatsApp: 5511965283733</span>
     </div>
 </div>
 </footer>
 
-
 <script>
-// Envia formulário para WhatsApp
-document.getElementById('pedidoForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const nome = document.getElementById('nome').value.trim();
-    const tel = document.getElementById('telefone').value.trim();
-    const coleta = document.getElementById('coleta').value.trim();
-    const entrega = document.getElementById('entrega').value.trim();
-    const tipo = document.getElementById('tipo').value.trim();
-    const obs = document.getElementById('obs').value.trim();
+async function getCoords(endereco) {
+    const url = "https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(endereco);
+    const resposta = await fetch(url);
+    const dados = await resposta.json();
+    if (dados.length === 0) return null;
+    return { lat: parseFloat(dados[0].lat), lon: parseFloat(dados[0].lon) };
+}
 
-    const msg =
-        `*Pedido de entrega*%0A` +
-        `*Nome:* ${nome}%0A` +
-        `*Telefone:* ${tel}%0A` +
-        `*Coleta:* ${coleta}%0A` +
-        `*Entrega:* ${entrega}%0A` +
-        `*Tipo:* ${tipo}%0A` +
-        `*Obs:* ${obs}`;
+function distanciaKm(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+        Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(lat1*Math.PI/180) *
+        Math.cos(lat2*Math.PI/180) *
+        Math.sin(dLon/2) *
+        Math.sin(dLon/2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
 
-    window.open(`https://wa.me/5511965283733?text=${msg}`, '_blank');
-});
+let precoGlobal = 0;
+
+async function calcular() {
+    const origem = document.getElementById("origem").value;
+    const destino = document.getElementById("destino").value;
+
+    const c1 = await getCoords(origem);
+    const c2 = await getCoords(destino);
+
+    if (!c1 || !c2) {
+        document.getElementById("resultado").innerText = "Endereço não encontrado.";
+        return;
+    }
+
+    const distancia = distanciaKm(c1.lat, c1.lon, c2.lat, c2.lon);
+    const preco = distancia * 2;
+
+    precoGlobal = preco;
+
+    document.getElementById("resultado").innerText =
+        "Distância: " + distancia.toFixed(2) + " km | Preço: R$ " + preco.toFixed(2);
+
+    document.getElementById("whatsBtn").style.display = "block";
+}
+
+function enviarWhats() {
+    const origem = document.getElementById("origem").value;
+    const destino = document.getElementById("destino").value;
+
+    const msg = 
+        "*Pedido de cálculo de frete*%0A" +
+        "*Origem:* " + origem + "%0A" +
+        "*Destino:* " + destino + "%0A" +
+        "*Preço:* R$ " + precoGlobal.toFixed(2);
+
+    window.open("https://wa.me/5511965283733?text=" + msg, "_blank");
+}
 </script>
 
 </body>
 </html>
-
-
-
-
