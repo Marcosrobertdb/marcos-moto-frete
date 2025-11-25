@@ -1,110 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcos Moto Frete</title>
 
 <style>
-    :root {
-        --yellow: #ffcc00;
-        --bg: #0d0d0d;
-        --card: #161616;
-        --text: #e8e8e8;
-    }
     body {
-        margin: 0;
+        background: #0d0d0d;
+        color: #fff;
         font-family: Arial, sans-serif;
-        background: var(--bg);
-        color: var(--text);
+        margin: 0;
     }
     header {
-        background: #0f0f0f;
-        padding: 16px 0;
-        border-bottom: 1px solid rgba(255,255,255,.08);
+        padding: 16px;
+        background: #111;
+        border-bottom: 1px solid #222;
     }
-    .header-content, .footer-content {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+    header a {
+        color: #ffcc00;
+        margin-right: 18px;
+        text-decoration: none;
+        font-size: 16px;
     }
     .container {
         width: 92%;
         max-width: 1100px;
         margin: auto;
     }
-    .footer-info img { 
-        width: 80px;
-        height: 80px;
-        border-radius: 12px;
-        border: 2px solid var(--yellow);
-        object-fit: cover;
-    }
-    .header-content div a { 
-        color: var(--yellow);
-        text-decoration: none;
-        font-size: 15px;
-        margin-left: 20px;
-    }
-    img {
-        max-width: 100%;
-        height: auto;
-    }
     h2, h3 {
-        color: var(--yellow);
+        color: #ffcc00;
     }
-    .form-card {
-        background: var(--card);
-        border-radius: 12px;
-        padding: 14px;
-        border: 1px solid rgba(255,255,255,.05);
-    }
-
     input {
         width: 100%;
-        padding: 10px;
-        margin-bottom: 12px;
-        border-radius: 8px;
+        padding: 12px;
+        margin: 10px 0;
         border: none;
+        border-radius: 8px;
         background: #1b1b1b;
         color: #fff;
     }
     button {
         width: 100%;
-        padding: 12px;
-        background: var(--yellow);
+        padding: 14px;
+        margin-top: 10px;
+        background: #ffcc00;
         border: none;
         border-radius: 8px;
-        font-size: 16px;
         font-weight: bold;
         cursor: pointer;
     }
-
+    .form-card {
+        background: #161616;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #222;
+    }
     .wa-fixed {
         position: fixed;
-        right: 18px;
-        bottom: 18px;
-        background: var(--yellow);
-        width: 62px;
-        height: 62px;
+        right: 20px;
+        bottom: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #ffcc00;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
-        cursor: pointer;
-        z-index: 1000;
     }
-
     footer {
         margin-top: 40px;
         padding: 30px 0;
-        border-top: 1px solid rgba(255,255,255,.1);
+        border-top: 1px solid #222;
         background: #0e0e0e;
-    }
-    .footer-info {
-        display: flex;
-        align-items: center;
-        gap: 12px;
     }
 </style>
 </head>
@@ -112,149 +80,117 @@
 <body>
 
 <header>
-<div class="container header-content">
-    <div>
-        <a href="#servicos">Serviços</a>
-        <a href="#pedido">Fazer Pedido</a>
-        <a href="#contato">Contato</a>
-    </div>
+<div class="container">
+    <a href="#servicos">Serviços</a>
+    <a href="#pedido">Pedido</a>
+    <a href="#contato">Contato</a>
 </div>
 </header>
 
-<section id="hero" style="padding: 20px 0;">
-    <div class="container">
-        <img src="capa-marcos-moto.jpg" alt="Marcos Moto Frete">
+
+<section id="pedido" class="container" style="padding: 30px 0;">
+    <h2>Calcular Preço da Entrega</h2>
+
+    <input id="origem" type="text" placeholder="Endereço de coleta">
+    <input id="destino" type="text" placeholder="Endereço de entrega">
+
+    <button id="btnCalcular">Calcular Preço</button>
+
+    <h3 id="resultado"></h3>
+
+    <button id="btnWhats" style="display:none;">Enviar pelo WhatsApp</button>
+</section>
+
+
+<section class="container" style="padding: 20px 0;">
+    <h3>Área de atendimento</h3>
+    <iframe src="https://maps.google.com/maps?q=Osasco,+SP&output=embed"
+        width="100%" height="300" style="border:0;border-radius:10px;"></iframe>
+</section>
+
+
+<footer id="contato" class="container">
+    <div>
+        <strong style="color:#ffcc00;">Contato</strong><br>
+        WhatsApp: <a href="https://wa.me/5511965283733" style="color:#ffcc00;">(11) 96528-3733</a>
     </div>
-</section>
-
-<main>
-
-<section id="pedido" style="padding:30px 0;">
-<div class="container">
-<h2>Calcular Preço da Entrega</h2>
-
-<input id="origem" type="text" placeholder="Endereço de coleta">
-<input id="destino" type="text" placeholder="Endereço de entrega">
-
-<button onclick="calcular()">Calcular Preço</button>
-
-<h3 id="resultado"></h3>
-
-<button id="whatsBtn" style="display:none;" onclick="enviarWhats()">Enviar Pedido via WhatsApp</button>
-
-</div>
-</section>
-
-<section id="mapa" style="padding:18px 0;border-top:1px solid rgba(255,255,255,.02)">
-<div class="container">
-<h3>Área de atendimento (mapa)</h3>
-<div style="background:#0b0b0b;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,.03)">
-<iframe
-    src="https://maps.google.com/maps?q=Osasco,+SP&output=embed"
-    width="100%"
-    height="320"
-    style="border:0; border-radius:8px;"
-    loading="lazy">
-</iframe>
-</div>
-</div>
-</section>
-
-<section style="padding:28px 0" id="servicos">
-<div class="container">
-<h3>O que dizem os clientes</h3>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
-<div class="form-card">"Chegou rápido e o motoboy foi muito profissional."<br><strong style="color:var(--yellow)">— Ana</strong></div>
-<div class="form-card">"Sempre uso nas emergências. Recomendo!"<br><strong style="color:var(--yellow)">— Rafael</strong></div>
-<div class="form-card">"Preço justo e excelente atendimento."<br><strong style="color:var(--yellow)">— João</strong></div>
-</div>
-</div>
-</section>
-
-</main>
-
-<div class="wa-fixed">
-<a href="https://wa.me/5511965283733" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="32">
-</a>
-</div>
-
-<footer id="contato">
-<div class="container footer-content">
-    <div class="footer-info">
-        <img src="site.png" alt="">
-        <div>
-            <div style="font-weight:700;color:var(--yellow)">Marcos Moto Frete</div>
-            <div>Osasco - SP • Seg-Sex 08:00-20:00</div>
-        </div>
-    </div>
-
-    <div style="text-align:right">
-        <strong>Contato</strong><br>
-        WhatsApp: <a href="https://wa.me/5511965283733" style="color:var(--yellow)" target="_blank">(11) 96528-3733</a>
-    </div>
-</div>
 </footer>
 
+
+<div class="wa-fixed">
+    <a href="https://wa.me/5511965283733">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30">
+    </a>
+</div>
+
 <script>
-async function getCoords(endereco) {
-    const url = "https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(endereco);
-    const resposta = await fetch(url);
-    const dados = await resposta.json();
-    if (dados.length === 0) return null;
-    return { lat: parseFloat(dados[0].lat), lon: parseFloat(dados[0].lon) };
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-function distanciaKm(lat1, lon1, lat2, lon2) {
-    const R = 6371;
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a =
-        Math.sin(dLat/2) * Math.sin(dLat/2) +
-        Math.cos(lat1*Math.PI/180) *
-        Math.cos(lat2*Math.PI/180) *
-        Math.sin(dLon/2) *
-        Math.sin(dLon/2);
-    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
+    const btnCalcular = document.getElementById("btnCalcular");
+    const btnWhats = document.getElementById("btnWhats");
+    let precoGlobal = 0;
 
-let precoGlobal = 0;
+    async function getCoords(endereco) {
+        const url = "https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(endereco);
 
-async function calcular() {
-    const origem = document.getElementById("origem").value;
-    const destino = document.getElementById("destino").value;
+        const resposta = await fetch(url, {
+            headers: { "User-Agent": "MarcosMotoFrete/1.0" }
+        });
 
-    const c1 = await getCoords(origem);
-    const c2 = await getCoords(destino);
-
-    if (!c1 || !c2) {
-        document.getElementById("resultado").innerText = "Endereço não encontrado.";
-        return;
+        const dados = await resposta.json();
+        if (dados.length === 0) return null;
+        return { lat: parseFloat(dados[0].lat), lon: parseFloat(dados[0].lon) };
     }
 
-    const distancia = distanciaKm(c1.lat, c1.lon, c2.lat, c2.lon);
-    const preco = distancia * 2;
+    function distanciaKm(lat1, lon1, lat2, lon2) {
+        const R = 6371;
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
 
-    precoGlobal = preco;
+        const a = 
+            Math.sin(dLat/2)**2 +
+            Math.cos(lat1 * Math.PI/180) *
+            Math.cos(lat2 * Math.PI/180) *
+            Math.sin(dLon/2)**2;
 
-    document.getElementById("resultado").innerText =
-        "Distância: " + distancia.toFixed(2) + " km | Preço: R$ " + preco.toFixed(2);
+        return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
 
-    document.getElementById("whatsBtn").style.display = "block";
-}
+    btnCalcular.addEventListener("click", async () => {
+        const origem = document.getElementById("origem").value;
+        const destino = document.getElementById("destino").value;
 
-function enviarWhats() {
-    const origem = document.getElementById("origem").value;
-    const destino = document.getElementById("destino").value;
+        const c1 = await getCoords(origem);
+        const c2 = await getCoords(destino);
 
-    const msg = 
-        "*Pedido de cálculo de frete*%0A" +
-        "*Origem:* " + origem + "%0A" +
-        "*Destino:* " + destino + "%0A" +
-        "*Preço:* R$ " + precoGlobal.toFixed(2);
+        if (!c1 || !c2) {
+            document.getElementById("resultado").innerText = "Endereço não encontrado.";
+            return;
+        }
 
-    window.open("https://wa.me/5511965283733?text=" + msg, "_blank");
-}
+        const km = distanciaKm(c1.lat, c1.lon, c2.lat, c2.lon);
+        precoGlobal = km * 2;
+
+        document.getElementById("resultado").innerText =
+            "Distância: " + km.toFixed(2) + " km — Preço: R$ " + precoGlobal.toFixed(2);
+
+        btnWhats.style.display = "block";
+    });
+
+    btnWhats.addEventListener("click", () => {
+        const origem = document.getElementById("origem").value;
+        const destino = document.getElementById("destino").value;
+
+        const msg =
+            "*Pedido de Frete*" +
+            "%0AOrigem: " + origem +
+            "%0ADestino: " + destino +
+            "%0APreço: R$ " + precoGlobal.toFixed(2);
+
+        window.open("https://wa.me/5511965283733?text=" + msg);
+    });
+
+});
 </script>
 
 </body>
